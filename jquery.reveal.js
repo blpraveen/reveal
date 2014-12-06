@@ -10,8 +10,9 @@
 (function ($) {
   $('a[data-reveal-id]').live('click', function (event) {
     event.preventDefault();
+    $('.reveal-modal.open').trigger('reveal:close');
     var modalLocation = $(this).attr('data-reveal-id');
-    $('#' + modalLocation).reveal($(this).data());
+    $('#' + modalLocation).reveal($(this).data()).addClass('open');
   });
 
   $.fn.reveal = function (options) {
